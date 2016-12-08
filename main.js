@@ -5,11 +5,11 @@ function priceCalculator(basePrice, numberPeopleOnJob, material) {
 
     var basePricePlusFlatMarkup = basePrice * (1 + flatMarkupRate);
 
-    if (material == 'drugs') {
+    if (material.toLowerCase() == 'drugs') {
         return basePricePlusFlatMarkup * (1 + (peopleMarkupRate * numberPeopleOnJob) + 0.075);
-    } else if (material == 'food') {
+    } else if (material.toLowerCase() == 'food') {
         return basePricePlusFlatMarkup * (1 + (peopleMarkupRate * numberPeopleOnJob) + 0.13);
-    } else if (material == 'electronics') {
+    } else if (material.toLowerCase() == 'electronics') {
         return basePricePlusFlatMarkup * (1 + (peopleMarkupRate * numberPeopleOnJob) + 0.02);
     } else {
         return basePricePlusFlatMarkup * (1 + (peopleMarkupRate * numberPeopleOnJob));
@@ -39,7 +39,7 @@ var calculatorInputs = [
     },
     {
         name: 'material',
-        validator: /[a-z]/,
+        validator: /[a-zA-Z]/,
         warning: 'Materials can only be entered in lower case letters.'
     }
 ];
